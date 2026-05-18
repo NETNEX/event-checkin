@@ -6,7 +6,7 @@ const EventCheckInApp = () => {
   const [activeTab, setActiveTab] = useState('checkin'); // 'qrgen', 'checkin', 'dashboard', 'settings'
   const [attendees, setAttendees] = useState([]);
   const [checkedIn, setCheckedIn] = useState(new Set());
-  const [qrScanResult, setQrScanResult] = useState('');
+  const [, setQrScanResult] = useState('');
   const [currentAttendee, setCurrentAttendee] = useState(null);
   const [showBadgePreview, setShowBadgePreview] = useState(false);
   const [badgeSettings, setBadgeSettings] = useState({
@@ -107,7 +107,7 @@ const EventCheckInApp = () => {
 
     try {
       // Simple QR detection - look for the pattern
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      ctx.getImageData(0, 0, canvas.width, canvas.height); // Would be used with jsQR for QR decoding
       // In production, use jsQR library for actual QR decoding
       // For now, we'll simulate with manual QR input
     } catch (err) {
